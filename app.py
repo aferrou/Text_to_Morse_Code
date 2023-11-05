@@ -46,16 +46,16 @@ def play_sound():
     pygame.mixer.music.load('beep.wav')
     pygame.mixer.music.set_volume(0.1)
 
-    for char in morse_code:
-        if char == '.':
+    for c in morse_code:
+        if c == '.':
             pygame.mixer.music.play()
             pygame.time.delay(300)
-        elif char == '-':
+        elif c == '-':
             pygame.mixer.music.play()
             pygame.time.delay(900) 
-        elif char == ' ':
+        elif c == ' ':
             pygame.time.delay(300)  
-        elif char == '/':
+        elif c == '/':
             pygame.time.delay(900)  
 
     pygame.mixer.quit()
