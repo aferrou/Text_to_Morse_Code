@@ -27,22 +27,29 @@
             font-size: 16px;
         }
 
-        label {
+        label, button {
             margin-top: 3%;
         }
     </style>
 </head>
 <body>
     <h1 align="center">Text to Morse Code Converter</h1>
-    <form action="/convert" method="post">
+    <form action="/convert" method="POST">
         <div align="center">
-        <label for="text">Enter Text:</label>
+        <label for="text">Enter text:</label>
         <br>
-        <input type="text" id="text" name="text" onkeyup="convertText(this.value)">
+        <input type="text" name="text" id="text" onkeyup="convertText(this.value)">
         <br><br>
         <label for="morse_code">Morse Code Output:</label>
         <br>
         <input type="text" id="morse_code" name="morse_code" readonly>
+        </div>
+    </form>
+
+
+    <form action="/play_sound" method="POST">
+        <div align="center">
+        <button type="submit" style="width: 100px; height: 40px;">Generate Sound</button>
         </div>
     </form>
 
