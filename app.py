@@ -14,15 +14,20 @@ morse_code_dict = {
 
 @app.route('/')
 def index():
-    return template('index')
+    return template('index.html')
 
 @app.route('/convert', method='POST')
 def convert():
     text = request.forms.get('text', '').upper()
     morse_code = ''
-    for char in text:
-        if char in morse_code_dict:
-            morse_code += morse_code_dict[char] + ' '
+
+    text = re.sub(r'\s+', ' ', text)
+    
+    for c in text:
+        if c in morse_code_dict:
+            morse_code += morse_code_dict[c] + ' '
+        elif c == ' ' :
+            morse_code += '/'
     return morse_code
 
 if __name__ == '__main__':
