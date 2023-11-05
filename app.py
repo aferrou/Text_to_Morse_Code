@@ -23,6 +23,7 @@ def index():
     return template('index.html')
 
 @app.route('/convert', method='POST')
+
 def convert():
     text = request.forms.get('text', '').upper()
     morse_code = ''
@@ -37,6 +38,7 @@ def convert():
     return morse_code
 
 @app.route('/play_sound', method='POST')
+
 def play_sound():
     morse_code = request.forms.get('morse_code', '').strip()
     
